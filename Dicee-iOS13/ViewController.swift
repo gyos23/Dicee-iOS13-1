@@ -13,22 +13,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var diceImageView1: UIImageView!
     @IBOutlet weak var diceImageView2: UIImageView!
     
-    var leftDiceNumber = 1
-    var rightDiceNumber = 5
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-    }
-
     @IBAction func rollButtonPressed(_ sender: UIButton) {
         
-        diceImageView1.image = [#imageLiteral(resourceName: "DiceOne"),#imageLiteral(resourceName: "DiceTwo"),#imageLiteral(resourceName: "DiceThree"),#imageLiteral(resourceName: "DiceFour"),#imageLiteral(resourceName: "DiceFive"),#imageLiteral(resourceName: "DiceSix")] [leftDiceNumber]//array of image literals
-        diceImageView2.image = [#imageLiteral(resourceName: "DiceOne"),#imageLiteral(resourceName: "DiceTwo"),#imageLiteral(resourceName: "DiceThree"),#imageLiteral(resourceName: "DiceFour"),#imageLiteral(resourceName: "DiceFive"),#imageLiteral(resourceName: "DiceSix")] [rightDiceNumber]//array of image literals
+        let diceArray = [#imageLiteral(resourceName: "DiceOne"),#imageLiteral(resourceName: "DiceTwo"),#imageLiteral(resourceName: "DiceThree"),#imageLiteral(resourceName: "DiceFour"),#imageLiteral(resourceName: "DiceFive"),#imageLiteral(resourceName: "DiceSix")]
         
-        leftDiceNumber = leftDiceNumber + 1
-        rightDiceNumber = rightDiceNumber - 1
+        diceImageView1.image = diceArray.randomElement() //will look at array and determine what's elemeeeents can be used for the random portin
+        diceImageView2.image = diceArray[Int.random(in: 0...5)]//this is doing the random element as well -- this is another way of writing the codee - seems like a waste of time but good to know in this project
         
+      
     }
     
 }
